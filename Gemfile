@@ -1,12 +1,20 @@
-# frozen_string_literal: true
+source 'https://rubygems.org'
 
-source "https://rubygems.org"
+ruby '3.1.2'
 
-# gem "rails"
+gem 'webrick'
 
-gem "rspec", "~> 3.12"
+group :test do
+  gem 'rspec'
+  gem 'simplecov', require: false
+  gem 'simplecov-console', require: false
+  gem 'capybara'
+  gem 'timecop'
+end
 
-gem "sinatra", "~> 3.0"
-gem "sinatra-contrib", "~> 3.0"
-gem "webrick", "~> 1.7"
-gem "rack-test", "~> 2.0"
+group :development, :test do
+  gem 'rubocop', '1.20'
+  gem 'sinatra'
+  gem 'sinatra-contrib'
+  gem 'pg'
+end
