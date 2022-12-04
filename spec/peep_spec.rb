@@ -1,4 +1,7 @@
 require 'peep'
+require 'database_helpers.rb'
+require 'time'
+require 'time_helpers'
 
 describe Peep do
   let(:date) do
@@ -10,7 +13,7 @@ describe Peep do
       Peep.create(peep: "This is a peep")
       Peep.create(peep: "This is a second peep")
       peep = Peep.create(peep: "Another peep!")
-      
+
       peeps = Peep.all
 
       expect(peeps.length).to eq 3

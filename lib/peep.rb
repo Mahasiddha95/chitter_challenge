@@ -1,4 +1,5 @@
 require_relative './database_connection'
+require 'time' 
 
 class Peep
   attr_reader :id, :text, :created_at
@@ -11,7 +12,7 @@ class Peep
 
   def self.all
     result = DatabaseConnection.query sql: "SELECT * FROM peeps ORDER BY created_at DESC;"
-      
+
     result.map do |peep|
       Peep.new(
         id: peep['id'],
